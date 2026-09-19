@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>to najwa 🌕</title>
+  <title>to: najwa🌕 </title>
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <!-- Google Fonts: Inter untuk teks sangat jelas & mudah dibaca -->
@@ -18,22 +18,45 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
-      color: #2d3748;
+      color: #f8fafc;
+      position: relative;
+      overflow-x: hidden;
+
+      /* Lukisan Padang Rumput Malam Hari dengan Bulan Purnama & Bintang */
+      background: 
+        /* Lapisan Bintang Berkilau */
+        radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 230px 80px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 300px 150px, #ffffff, rgba(0,0,0,0)),
+        
+        /* Bulatan Bulan Purnama Berpendar */
+        radial-gradient(circle at 80% 20%, #fffde7 0%, #fff9c4 4%, rgba(255, 249, 196, 0.3) 12%, transparent 30%),
+        
+        /* Siluet Bukit Padang Rumput Malam Hari */
+        radial-gradient(circle at 20% 120%, #15291b 0%, #0d1a11 45%, transparent 60%),
+        radial-gradient(circle at 80% 120%, #1b3823 0%, #09150c 50%, transparent 65%),
+        
+        /* Gradasi Langit Malam */
+        linear-gradient(to bottom, #050b14 0%, #0a192f 40%, #112240 75%, #1a3636 100%);
+      
+      background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 350px 350px, 400px 400px, 250px 250px, 300px 300px, 200px 200px, 450px 450px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
     }
 
+    /* Container transparan sepenuhnya tanpa bingkai putih */
     .card-container {
-      background: #ffffff;
+      background: transparent;
       max-width: 520px;
       width: 100%;
-      border-radius: 24px;
-      padding: 36px 28px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      padding: 36px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -51,14 +74,15 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: #e2e8f0;
+      background-color: rgba(255, 255, 255, 0.3);
       transition: all 0.3s ease;
     }
 
     .dot.active {
-      background-color: #4c51bf;
+      background-color: #f1f5f9;
       width: 24px;
       border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
     /* Step / Page Styling */
@@ -80,26 +104,29 @@
       font-size: 3.5rem;
       margin-bottom: 16px;
       display: inline-block;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
     }
 
     h1 {
       font-size: 1.75rem;
       font-weight: 800;
-      color: #1a202c;
+      color: #ffffff;
       margin-bottom: 12px;
       line-height: 1.3;
       letter-spacing: -0.02em;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
     }
 
     p.subtext {
       font-size: 1.05rem;
-      color: #4a5568;
+      color: #e2e8f0;
       line-height: 1.6;
       font-weight: 400;
       margin-bottom: 24px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     }
 
-    /* Options / Buttons */
+    /* Options / Buttons Semi-Transparan */
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -108,9 +135,10 @@
 
     .btn {
       width: 100%;
-      background-color: #4c51bf;
+      background: rgba(255, 255, 255, 0.15);
       color: #ffffff;
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
       padding: 14px 24px;
       font-size: 1rem;
       font-weight: 600;
@@ -118,24 +146,27 @@
       cursor: pointer;
       transition: all 0.2s ease;
       font-family: inherit;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
 
     .btn:hover {
-      background-color: #434190;
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(76, 81, 191, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     .btn:active {
       transform: translateY(0);
     }
 
-    /* Quiz Option Custom Style */
+    /* Quiz Option Semi-Transparan */
     .option-btn {
       text-align: left;
-      background-color: #f7fafc;
-      color: #2d3748;
-      border: 2px solid #edf2f7;
+      background: rgba(255, 255, 255, 0.12);
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
       padding: 16px;
       display: flex;
       align-items: center;
@@ -145,11 +176,12 @@
       font-weight: 500;
       font-size: 1rem;
       transition: all 0.2s ease;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
 
     .option-btn:hover {
-      border-color: #4c51bf;
-      background-color: #f0f4ff;
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
     /* Gallery Grid */
@@ -165,6 +197,8 @@
       height: 130px;
       object-fit: cover;
       border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* Audio Player Hidden */
@@ -177,7 +211,7 @@
 
   <!-- Musik Background (Shape of My Heart) -->
   <audio id="bg-music" loop>
-    <source src="https://files.catbox.moe/6v307g.mp3" type="audio/mpeg">
+    <source src="lagu.mp3" type="audio/mpeg">
   </audio>
 
   <div class="card-container">
@@ -194,20 +228,20 @@
     <!-- HALAMAN 1: Pembuka -->
     <div class="page active" id="page-1">
       <span class="icon-emoji">✉️</span>
-      <h1>Ada Pesan Rahasia Buat Kamu!</h1>
-      <p class="subtext">Sebelum membuka pesan utamanya, kamu harus jawab 2 pertanyaan dulu okeeyyy, letss gooo</p>
-      <button class="btn" onclick="nextPage(2)">Siap, Mulai Sekarang! 🚀</button>
+      <h1>akuu ada pesan rahasia nihh buatt kamu!</h1>
+      <p class="subtext">tapii sebelum kamuu buka pesan utamanya, kamu harus jawab 2 pertanyaan dulu yaaa. siap?</p>
+      <button class="btn" onclick="nextPage(2)">siap, letss gooo! 🚀</button>
     </div>
 
     <!-- HALAMAN 2: Pertanyaan 1 -->
     <div class="page" id="page-2">
       <span class="icon-emoji">🤔</span>
       <h1>Pertanyaan Pertama</h1>
-      <p class="subtext">Hari ini ada yang ulang tahun nihhh, kamu tahu engga siapa orangnyaa?</p>
+      <p class="subtext">hari ini ada yang usianya bertambah nih... kamuu tau engga siapa orangnyaaa?</p>
       <div class="btn-group">
-        <button class="option-btn" onclick="nextPage(3)"><span>A.</span> Najwa alifa oktaviany</button>
-        <button class="option-btn" onclick="nextPage(3)"><span>B.</span> kamu dong ✨</button>
-        <button class="option-btn" onclick="nextPage(3)"><span>C.</span> Dua-duanya benar! 🎉</button>
+        <button class="option-btn" onclick="nextPage(3)"><span>A.</span> najwa alifa oktaviany 🌕</button>
+        <button class="option-btn" onclick="nextPage(3)"><span>B.</span> kamuu dong ✨</button>
+        <button class="option-btn" onclick="nextPage(3)"><span>C.</span> dua-duanya benar! 🎉</button>
       </div>
     </div>
 
@@ -215,11 +249,11 @@
     <div class="page" id="page-3">
       <span class="icon-emoji">🎁</span>
       <h1>Pertanyaan Kedua</h1>
-      <p class="subtext">Di hari ulang tahunmu ini, harapan apa yang paling kamu inginkan?</p>
+      <p class="subtext">di hari ulang tahun kamuu ini, harapan apa yang paling kamu inginkan?</p>
       <div class="btn-group">
-        <button class="option-btn" onclick="nextPage(4)"><span>1.</span> Makin sukses, sehat & banyak rezeki 💰</button>
-        <button class="option-btn" onclick="nextPage(4)"><span>2.</span> Impian & cita-cita tercapai tahun ini 🌟</button>
-        <button class="option-btn" onclick="nextPage(4)"><span>3.</span> Selalu bahagia bersama orang orang tersayang ❤️</button>
+        <button class="option-btn" onclick="nextPage(4)"><span>1.</span> makin sukses, sehat & banyak rezeki 💰</button>
+        <button class="option-btn" onclick="nextPage(4)"><span>2.</span> impian & cita-cita tercapai tahun ini 🌟</button>
+        <button class="option-btn" onclick="nextPage(4)"><span>3.</span> selalu bahagia bersama orang tersayang ❤️</button>
       </div>
     </div>
 
@@ -227,19 +261,19 @@
     <div class="page" id="page-4">
       <span class="icon-emoji">🎵</span>
       <h1>Satu Langkah Lagi!</h1>
-      <p class="subtext">Tekan tombol di bawah untuk menyalakan musik dan membuka kartu ucapan spesialmu!</p>
-      <button class="btn" onclick="bukaKejutanUtama()">Buka Kejutan Utama ✨</button>
+      <p class="subtext">pencet tombol di bawah buat nyalain musik dan ngebuka kartu ucapan spesial kamuu!</p>
+      <button class="btn" onclick="bukaKejutanUtama()">buka kartu spesial ✨</button>
     </div>
 
     <!-- HALAMAN 5: Puncak Kejutan & Ucapan Utama -->
     <div class="page" id="page-5">
       <span class="icon-emoji">🎉</span>
       <!-- GANTI NAMA TEMAN DI SINI -->
-      <h1>Selamat Ulang Tahun najwa 🎂</h1>
+      <h1> happy birthday awaa 🎂</h1>
       
       <!-- GANTI PESAN / DOA DI SINI -->
       <p class="subtext">
-        Selamat bertambah usia! Semoga di lembar kehidupan yang baru ini, kamu selalu diberikan kesehatan, kebahagiaan yang melimpah, dan kemudahan dalam meraih semua cita-citamu. Terima kasih sudah jadi teman yang luar biasa! 🌟
+        semogaa di hari spesial kamuu inii diisi oleh kebahagian dan kesenangan selaluu,semogaa harapan dan impian kamuu tercapai,wish you all the best,sehatt selalu yaaaa🌟
       </p>
 
       <!-- GALERI FOTO KENANGAN -->
